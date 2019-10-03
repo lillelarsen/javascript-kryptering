@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>caesar cipher</title>
+</head>
+<body>
+    <form action="" id="encrypttor3000">
+        <textarea name="puretext" id="" cols="30" rows="10"></textarea>
+        <button type="submit"></button>
+        <textarea name="encruptedtext" id="" cols="30" rows="10"></textarea>
+    </form>
+    <script src="caesar.js"></script>
+<script>
+    const form = document.querySelector('#encrypttor3000');
+    const puretext = form.querySelector('textarea[name=puretext]');
+    const encryptedtext = form.querySelector('textarea[name=encruptedtext]');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (puretext.value.length && !encryptedtext.value.length) {
+            encryptedtext.value = encrypt(puretext.value);
+            puretext.value = ``;
+        } else if (encryptedtext.value.length && !puretext.value.length) {
+            puretext.value = decrypt(encryptedtext.value);
+            encryptedtext.value = ``;
+        }
+    });
+</script>
+</body>
+</html>
